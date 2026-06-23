@@ -1,0 +1,16 @@
+from pydantic_settings import BaseSettings
+
+
+class Settings(BaseSettings):
+    DATABASE_URL: str
+    GEMINI_API_KEY: str
+    GROQ_API_KEY: str
+    COLLECTION_NAME: str
+    QDRANT_URL: str
+
+    class Config:
+        env_file = ".env"
+
+
+
+settings = Settings()
