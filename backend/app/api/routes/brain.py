@@ -22,5 +22,6 @@ def company_brain_chat(
     )
 
     return {
-        "answer": result["answer"]
+        "answer": result["answer"],
+        "sources": result["sources"]
     }

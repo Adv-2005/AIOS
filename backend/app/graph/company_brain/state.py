@@ -8,3 +8,4 @@ class BrainState(TypedDict):
     question: str
     documents: list[Document]
     answer: str
+    sources: list[str]
