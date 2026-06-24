@@ -6,11 +6,17 @@ from app.graph.company_brain.state import BrainState
 
 from app.graph.company_brain.nodes.retrieve_node import retrieve_node
 from app.graph.company_brain.nodes.answer_node import answer_node
+from app.graph.company_brain.nodes.rewrite_node import rewrite_node
 
 
 def build_company_brain():
 
     builder = StateGraph(BrainState)
+
+    builder.add_node(
+    "rewrite",
+    rewrite_node
+)
 
     builder.add_node(
         "retrieve",
@@ -21,9 +27,14 @@ def build_company_brain():
         "answer",
         answer_node
     )
+    builder.add_edge(
+    START,
+    "rewrite"
+)
+
 
     builder.add_edge(
-        START,
+        "rewrite",
         "retrieve"
     )
 

@@ -1,10 +1,17 @@
-from app.services.retrieval import retrieve_documents
+
+from app.services.hybrid_retrieval import hybrid_search
+from app.services.reranker import rerank_documents
 
 
 def retrieve_node(state):
 
-    docs = retrieve_documents(
-        state["question"]
+    docs = hybrid_search(
+        state["rewritten_query"],
+    )
+    docs = rerank_documents(
+        state["question"],
+        docs,
+        top_k=5
     )
     sources = list(
         set(
