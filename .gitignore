@@ -9,3 +9,5 @@ faiss_index/
 chroma_db/
 __pycache__/
 uploads/
+alembic.ini
+alembic/

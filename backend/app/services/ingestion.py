@@ -9,6 +9,8 @@ from app.services.vectorstore import get_vectorstore
 def ingest_document(
     file_path: str,
     filename: str,
+    visibility: str,
+    department: str | None,
     db
 ):
     try:
@@ -25,7 +27,9 @@ def ingest_document(
 
         document = Document(
             filename=filename,
-            file_path=file_path
+            file_path=file_path,
+            visibility=visibility,
+            department=department
         )
 
         db.add(document)
@@ -46,7 +50,9 @@ def ingest_document(
                 {
                     "document_id": str(document.id),
                     "filename": filename,
-                    "chunk_index": idx
+                    "chunk_index": idx,
+                    "visibility": document.visibility,
+                    "department": document.department,
                 }
             )
 

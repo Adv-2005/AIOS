@@ -5,6 +5,9 @@ from app.services.reranker import rerank_documents
 
 def retrieve_node(state):
 
+    # future:
+    # filter docs based on visibility
+
     docs = hybrid_search(
         state["rewritten_query"],
     )

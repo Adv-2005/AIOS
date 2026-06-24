@@ -3,8 +3,15 @@ from app.services.bm25 import build_bm25
 
 def retrieve_documents(
     query: str,
-    k: int = 10
+    k: int = 10,
+    user_role: str | None = None,
+    department: str | None = None
 ):
+    # TODO:
+    # Apply RBAC filters using Qdrant metadata
+    # visibility = all
+    # visibility = department
+    # visibility = private
     vectorstore = get_vectorstore()
 
     retriever = vectorstore.as_retriever(
@@ -21,7 +28,9 @@ def retrieve_documents(
 
 def bm25_search(
     query: str,
-    k: int = 10
+    k: int = 10,
+    user_role: str | None = None,
+    department: str | None = None
 ):
 
     bm25, chunks = build_bm25()

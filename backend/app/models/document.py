@@ -33,6 +33,15 @@ class Document(Base):
         String,
         nullable=False
     )
+    visibility = Column(
+        String,
+        default="all"
+    )
+
+    department = Column(
+        String,
+        nullable=True
+    )
 
     uploaded_by = Column(
         UUID(as_uuid=True),
