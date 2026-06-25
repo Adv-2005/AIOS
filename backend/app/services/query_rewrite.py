@@ -1,6 +1,6 @@
-from app.services.llm import get_llm
+from app.services.llm import get_query_rewrite_llm
 
-llm = get_llm()
+llm = get_query_rewrite_llm()
 
 
 def rewrite_query(question: str) -> str:

@@ -4,6 +4,7 @@ import uuid
 
 from sqlalchemy import (
     Column,
+    Integer,
     String,
     Text,
     DateTime,
@@ -50,6 +51,7 @@ class Task(Base):
     )
 
     due_date = Column(DateTime)
+    estimated_hours = Column(Integer)
 
     created_at = Column(
         DateTime(timezone=True),
