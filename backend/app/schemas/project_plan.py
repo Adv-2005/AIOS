@@ -9,6 +9,9 @@ class TaskPlan(BaseModel):
     priority: Literal["Low", "Medium", "High"]
     estimated_hours: int
     depends_on: list[int] = Field(default_factory=list, description="List of task_ids that must be completed first. Empty list if no dependencies.")
+    suggested_role: str = Field(
+        description="Most suitable role for completing the task."
+    )
 
 
 class MilestonePlan(BaseModel):

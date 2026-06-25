@@ -57,3 +57,5 @@ class Task(Base):
         DateTime(timezone=True),
         server_default=func.now()
     )   
+
+    suggested_role = Column(String)

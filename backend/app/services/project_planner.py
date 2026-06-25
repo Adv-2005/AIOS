@@ -29,6 +29,7 @@ Generate a software project plan:
 - Suggested project duration in weeks
 - Recommended team size
 
+
 For each task provide:
 - task_id
 - title
@@ -36,6 +37,18 @@ For each task provide:
 - priority (Low, Medium, High)
 - estimated effort in hours
 - depends_on
+- suggested_role
+
+Choose ONE suggested_role from:
+
+- Backend Developer
+- Frontend Developer
+- Full Stack Developer
+- AI/ML Engineer
+- DevOps Engineer
+- QA Engineer
+- UI/UX Designer
+- Product Manager
 
 Rules:
 
@@ -74,6 +87,7 @@ def save_project_plan(
             description=task.description,
             priority=task.priority,
             estimated_hours=task.estimated_hours,
+            suggested_role=task.suggested_role,
             status="todo"
         )
 
