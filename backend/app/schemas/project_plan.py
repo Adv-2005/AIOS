@@ -1,11 +1,14 @@
-from pydantic import BaseModel
+from langchain_protocol import Literal
+from pydantic import BaseModel, Field
 
 
 class TaskPlan(BaseModel):
+    task_id: int = Field(..., description="Unique identifier for the task, starting from 1.")
     title: str
     description: str
-    priority: str
-    estimate_hours: int
+    priority: Literal["Low", "Medium", "High"]
+    estimated_hours: int
+    depends_on: list[int] = Field(default_factory=list, description="List of task_ids that must be completed first. Empty list if no dependencies.")
 
 
 class MilestonePlan(BaseModel):

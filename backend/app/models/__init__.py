@@ -6,3 +6,4 @@ from app.models.chunk import Chunk
 from app.models.project import Project
 from app.models.task import Task
 from app.models.kpi import KPI
+from app.models.task_dependencies import TaskDependency
