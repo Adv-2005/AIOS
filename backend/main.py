@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from app.api.routes import documents
 from app.api.routes import brain
 from app.api.routes import project
+from app.api.routes import productivity
 
 app = FastAPI(title="AI Command Centre",
     description="An AI-powered command centre for your company")
@@ -23,4 +24,10 @@ app.include_router(
     project.router,
     prefix="/project",
     tags=["Project"]
+)
+
+app.include_router(
+    productivity.router,
+    prefix="/productivity",
+    tags=["Productivity"]
 )

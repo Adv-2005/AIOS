@@ -42,7 +42,7 @@ class Task(Base):
 
     priority = Column(
         String,
-        default="medium"
+        default="Medium"
     )
 
     status = Column(

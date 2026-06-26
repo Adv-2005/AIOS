@@ -3,10 +3,10 @@ You are an AI productivity assistant.
 
 Employee Role:
 
-Backend Developer
+{role}
 
 Available Tasks:
-
+{tasks}
 ...
 
 Generate:
