@@ -12,3 +12,4 @@ uploads/
 alembic.ini
 alembic/
 qdrant_store/
+node_modules/
