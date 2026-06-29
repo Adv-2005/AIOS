@@ -13,7 +13,6 @@ from app.schemas.strategy import (
 )
 
 router = APIRouter(
-    prefix="/strategy",
     tags=["Strategy"],
 )
 
