@@ -12,8 +12,15 @@ from app.api.deps import get_db
 from app.services.ingestion import (
     ingest_document
 )
+from app.services.document import get_documents
 
 router = APIRouter()
+
+@router.get("/")
+def list_documents(
+    db: Session = Depends(get_db)
+):
+    return get_documents(db)
 
 @router.post("/upload")
 async def upload_document(file: UploadFile = File(...),visibility: str = Form("app"),department: str | None = Form(None),db: Session = Depends(get_db) ):

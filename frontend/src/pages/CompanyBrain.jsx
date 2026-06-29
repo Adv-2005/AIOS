@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { askQuestion, uploadDocument } from "../api/companyBrain";
+import { useState, useEffect } from "react";
+import { askQuestion, uploadDocument, getDocuments } from "../api/companyBrain";
 
 
 export default function CompanyBrain() {
@@ -15,6 +15,28 @@ export default function CompanyBrain() {
     const [selectedFile, setSelectedFile] = useState(null);
 
     const [uploading, setUploading] = useState(false);
+
+    const [documents, setDocuments] = useState([]);
+
+    useEffect(() => {
+  loadDocuments();
+}, []);
+
+    async function loadDocuments() {
+
+    try {
+
+        const docs = await getDocuments();
+
+        setDocuments(docs);
+
+    } catch (err) {
+
+        console.error(err);
+
+    }
+
+}
 
     async function handleAsk() {
 
@@ -54,6 +76,7 @@ export default function CompanyBrain() {
         alert(`Document uploaded successfully.\nID: ${data.document_id}`);
 
         setSelectedFile(null);
+        loadDocuments(); // Refresh the list of documents after upload
 
     } catch (err) {
 
@@ -106,6 +129,39 @@ export default function CompanyBrain() {
         {uploading ? "Uploading..." : "Upload"}
 
     </button>
+
+</div>
+
+<div className="border rounded p-4 bg-white">
+
+    <h2 className="text-xl font-semibold mb-4">
+
+        Uploaded Documents
+
+    </h2>
+
+    {documents.length === 0 ? (
+
+        <p>No documents uploaded.</p>
+
+    ) : (
+
+        <ul className="space-y-2">
+
+            {documents.map((doc) => (
+
+                <li
+                    key={doc.id}
+                    className="border rounded px-3 py-2"
+                >
+                    {doc.filename}
+                </li>
+
+            ))}
+
+        </ul>
+
+    )}
 
 </div>
 
