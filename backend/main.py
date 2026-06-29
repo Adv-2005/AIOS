@@ -4,6 +4,7 @@ from app.api.routes import brain
 from app.api.routes import project
 from app.api.routes import productivity
 from app.api.routes import strategy
+from app.api.routes import kpi
 
 app = FastAPI(title="AI Command Centre",
     description="An AI-powered command centre for your company")
@@ -37,4 +38,10 @@ app.include_router(
     strategy.router,
     prefix="/strategy",
     tags=["Strategy"]
+)
+
+app.include_router(
+    kpi.router,
+    prefix="/kpi",
+    tags=["KPI"]
 )
