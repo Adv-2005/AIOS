@@ -8,8 +8,6 @@ from app.services.kpi import get_dashboard
 
 
 router = APIRouter(
-    prefix="/kpi",
-    tags=["KPI Dashboard"]
 )
 
 

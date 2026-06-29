@@ -31,7 +31,7 @@ export default function Sidebar() {
   return (
     <aside className="w-64 bg-slate-900 text-white flex flex-col">
       <div className="text-2xl font-bold p-6 border-b border-slate-700">
-        AI COO
+        AI-OS
       </div>
 
       <nav className="flex-1 p-4 space-y-2">
