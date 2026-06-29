@@ -9,7 +9,6 @@ from app.schemas.productivity import (
 )
 
 router = APIRouter(
-    prefix="/productivity",
     tags=["Productivity Agent"],
 )
 
